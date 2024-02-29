@@ -1,10 +1,11 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import "./card.css";
 
-function CardItem() {
+function CardItem({ img }) {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="../../../public/img/Finger 1.png" />
+    <Card style={{ width: "18rem" }} className="card__style">
+      <Card.Img variant="top" src={img} />
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>
