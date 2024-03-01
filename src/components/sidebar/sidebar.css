@@ -2,3 +2,9 @@
   font-size: 24px; /* Your desired font size */
   margin-right: 10px; /* Adjust the margin to set spacing between icon and text */
 }
+.btn__logout {
+  position: fixed;
+  bottom: 0;
+  width: 235px;
+  margin-left: 5px;
+}

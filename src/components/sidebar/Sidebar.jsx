@@ -8,11 +8,19 @@ import {
   faImage,
   faCopy,
   faTimes,
+  faTachometer,
+  faFingerprint,
+  faUserCheck,
+  faTableList,
+  faGear,
+  faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
 import SubMenu from "./Submenu";
 import { Nav, Button } from "react-bootstrap";
 import classNames from "classnames";
 import "./sidebar.css";
+import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
+import Image from "react-bootstrap/Image";
 
 class SideBar extends React.Component {
   render() {
@@ -27,16 +35,15 @@ class SideBar extends React.Component {
           >
             <FontAwesomeIcon icon={faTimes} pull="right" size="xs" />
           </Button>
-          <h3>vite + react + bootstrap</h3>
+          {/* <img src="/img/Logo-BCA.png"></img> */}
+          <Image src="/img/Logo-BCA-bg-white.png" fluid />
         </div>
 
         <Nav className="flex-column pt-2">
-          <p className="text-light">Heading</p>
-
           <Nav.Item className="active">
             <Nav.Link className="text-light" href="/">
-              <FontAwesomeIcon icon={faHome} className="custom-icon" />
-              Home
+              <FontAwesomeIcon icon={faMicrosoft} className="custom-icon" />
+              Dashboard
             </Nav.Link>
           </Nav.Item>
           {/* 
@@ -47,25 +54,37 @@ class SideBar extends React.Component {
           /> */}
 
           <Nav.Item>
-            <Nav.Link className="text-light" href="/about">
-              <FontAwesomeIcon icon={faBriefcase} className="custom-icon" />
-              About
+            <Nav.Link className="text-light" href="/ReconstructImage">
+              <FontAwesomeIcon icon={faFingerprint} className="custom-icon" />
+              Reconstruct Images
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link className="text-light" href="/">
-              <FontAwesomeIcon icon={faImage} className="custom-icon" />
-              Portfolio
+              <FontAwesomeIcon icon={faUserCheck} className="custom-icon" />
+              Verification Images
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
             <Nav.Link className="text-light" s href="/">
-              <FontAwesomeIcon icon={faPaperPlane} className="custom-icon" />
-              Contact
+              <FontAwesomeIcon icon={faTableList} className="custom-icon" />
+              Activity User
             </Nav.Link>
           </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link className="text-light" s href="/">
+              <FontAwesomeIcon icon={faGear} className="custom-icon" />
+              Configuration
+            </Nav.Link>
+          </Nav.Item>
+
+          <Button variant="danger" size="lg" className="btn__logout">
+            <FontAwesomeIcon icon={faSignOut} pull="left" size="xl" />
+            Logout & Exit
+          </Button>
         </Nav>
       </div>
     );

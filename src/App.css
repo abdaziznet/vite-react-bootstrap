@@ -39,6 +39,7 @@ a:focus {
 .sidebar-header {
   background: #313b4c;
   color: #adb5bd;
+  height: 135px;
 }
 
 .sidebar-header h3 {
@@ -69,11 +70,11 @@ a:focus {
 
 .nav-item.active {
   color: #e9ecef;
-  background: #2d3646 !important;
+  background: #1c212b !important;
 }
 
 .nav-item:hover {
-  background: #313b4c;
+  background: #535c6d;
   color: #fff;
   transition: 0.2s;
 }

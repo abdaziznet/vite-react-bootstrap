@@ -5,7 +5,7 @@ import NavBar from "../../components/content/Navbar";
 import "../../App.css";
 import FormExample from "../../components/validation/FormExample";
 
-class About extends React.Component {
+class ReconstructImage extends React.Component {
   render() {
     return (
       <Container
@@ -19,4 +19,4 @@ class About extends React.Component {
   }
 }
 
-export default About;
+export default ReconstructImage;

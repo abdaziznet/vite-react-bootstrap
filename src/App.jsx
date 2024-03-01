@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import SideBar from "./components/sidebar/Sidebar";
-import Home from "./pages/home/Home";
-import About from "./pages/about/About";
+import Dashboard from "./pages/dashboard/Dashboard";
+import ReconstructImage from "./pages/reconstructImage/Reconstructimage";
 
 class App extends React.Component {
   constructor(props) {
@@ -60,12 +60,17 @@ class App extends React.Component {
           <Routes>
             <Route
               index
-              element={<Home toggle={this.toggle} isOpen={this.state.isOpen} />}
+              element={
+                <Dashboard toggle={this.toggle} isOpen={this.state.isOpen} />
+              }
             />
             <Route
-              path="about"
+              path="reconstructImage"
               element={
-                <About toggle={this.toggle} isOpen={this.state.isOpen} />
+                <ReconstructImage
+                  toggle={this.toggle}
+                  isOpen={this.state.isOpen}
+                />
               }
             />
           </Routes>

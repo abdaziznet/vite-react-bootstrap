@@ -1,0 +1,12 @@
+.navbar__title {
+  color: white;
+  margin-left: 10px;
+  padding-top: 5px;
+}
+
+.icon__userlogin {
+  font-size: 35px; /* Your desired font size */
+  margin-left: 10px;
+  padding-top: 5px;
+  color: white; /* Adjust the margin to set spacing between icon and text */
+}

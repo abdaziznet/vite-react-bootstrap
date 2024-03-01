@@ -1,7 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
-import { Navbar, Button, Nav } from "react-bootstrap";
+import {
+  faAlignJustify,
+  faCircleRight,
+  faCircleUser,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { Navbar, Button, Nav, Container } from "react-bootstrap";
+import "./navbar.css";
 
 class NavBar extends React.Component {
   render() {
@@ -15,11 +21,18 @@ class NavBar extends React.Component {
         <Button variant="light" onClick={this.props.toggle}>
           <FontAwesomeIcon icon={faAlignJustify} />
         </Button>
+        <h4 className="navbar__title">Fingerprint System Reparation Tools</h4>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="justify-content-end"
+        >
           <Nav className="ml-auto" navbar>
-            <Nav.Link href="#">page</Nav.Link>
+            <Navbar.Text className="text-light">
+              <a>Mark Otto</a>
+            </Navbar.Text>
+            <FontAwesomeIcon icon={faCircleUser} className="icon__userlogin" />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
