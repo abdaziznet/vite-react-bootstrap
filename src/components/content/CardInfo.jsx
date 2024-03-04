@@ -1,13 +1,34 @@
-import Card from "react-bootstrap/Card";
-import LoginInfo from "./LoginInfo";
+import { Card, Table } from "react-bootstrap";
+import "./cardinfo.css";
 
 function CardInfo({ title }) {
   return (
     <>
-      <Card border="primary" style={{ width: "70rem" }}>
-        <Card.Header>{title}</Card.Header>
+      <Card>
+        <Card.Header as="h6">{title}</Card.Header>
         <Card.Body>
-          <LoginInfo />
+          <Table responsive>
+            <tr>
+              <td>Login ID</td>
+              <td>: 000000</td>
+              <td>Office Code</td>
+              <td>: 000</td>
+            </tr>
+            <br />
+            <tr>
+              <td>Name</td>
+              <td>: Alessandro Delpiero</td>
+              <td>Group user</td>
+              <td>: Manager</td>
+            </tr>
+            <br />
+            <tr>
+              <td>Branch Code</td>
+              <td>: 0100</td>
+              <td>Login Time</td>
+              <td>: 07/02/2024 08:00:21</td>
+            </tr>
+          </Table>
         </Card.Body>
       </Card>
       <br />

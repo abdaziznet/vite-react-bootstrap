@@ -4,6 +4,7 @@ import "./App.css";
 import SideBar from "./components/sidebar/Sidebar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ReconstructImage from "./pages/reconstructImage/Reconstructimage";
+import VerificationImage from "./pages/verificationImage/Verificationimage";
 
 class App extends React.Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class App extends React.Component {
   /**
    * Add event listener
    */
+
   componentDidMount() {
     this.updateWidth();
     window.addEventListener("resize", this.updateWidth.bind(this));
@@ -68,6 +70,15 @@ class App extends React.Component {
               path="reconstructImage"
               element={
                 <ReconstructImage
+                  toggle={this.toggle}
+                  isOpen={this.state.isOpen}
+                />
+              }
+            />
+            <Route
+              path="verificationImage"
+              element={
+                <VerificationImage
                   toggle={this.toggle}
                   isOpen={this.state.isOpen}
                 />

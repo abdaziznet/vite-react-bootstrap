@@ -29,6 +29,7 @@ a:focus {
   color: #adb5bd;
   margin-left: -250px;
   transition: all 0.5s;
+  height: 100vh;
 }
 
 .sidebar.is-open {
@@ -125,7 +126,6 @@ li a.dropdown-toggle::after {
     max-width: 100%;
     margin-left: 0;
     transition: all 0.5s, height 0s;
-    height: 100vh !important;
   }
 
   .sidebar.is-open > .sidebar-header button {
@@ -137,4 +137,17 @@ li a.dropdown-toggle::after {
     position: relative;
     left: 68%;
   }
+}
+
+.button__icon {
+  background-color: white;
+  position: absolute;
+  inset-block: -2px;
+  right: 0;
+  width: 55px;
+  border-radius: 50%;
+  color: white;
+  font-size: 15;
+  text-align: center;
+  line-height: 60px;
 }

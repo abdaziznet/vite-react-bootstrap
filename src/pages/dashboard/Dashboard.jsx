@@ -12,7 +12,6 @@ import CountCard from "../../components/content/CountCard";
 import Table from "react-bootstrap/Table";
 import ListView from "../../components/content/ListView";
 import CardInfo from "../../components/content/CardInfo";
-import LoginInfo from "../../components/content/LoginInfo";
 
 class Dashboard extends React.Component {
   render() {
@@ -28,7 +27,7 @@ class Dashboard extends React.Component {
           ))}
         </Row> */}
         <Container className="content__isi" fluid>
-          <Table>
+          <Table responsive>
             <tr>
               <td className="align-top">
                 <CountCard title={"Branch Total"} value={"40"} />
@@ -51,6 +50,7 @@ class Dashboard extends React.Component {
                   desc={
                     "Some quick example text to build on the card title and make up the bulk of the card's content."
                   }
+                  linkTo={"/ReconstructImage"}
                 />
               </td>
               <td className="align-top">
@@ -60,6 +60,7 @@ class Dashboard extends React.Component {
                   desc={
                     "Some quick example text to build on the card title and make up the bulk of the card's content."
                   }
+                  linkTo={"/ReconstructImage"}
                 />
               </td>
               <td className="align-top">
@@ -69,11 +70,19 @@ class Dashboard extends React.Component {
                   desc={
                     "Some quick example text to build on the card title and make up the bulk of the card's content."
                   }
+                  linkTo={"/ReconstructImage"}
                 />
               </td>
             </tr>
+            <tr>
+              <td className="align-top" colSpan={3}>
+                <CardInfo title={"Login Information"} />
+              </td>
+            </tr>
+            <tr>
+              <td className="align-top" colSpan={3}></td>
+            </tr>
           </Table>
-          <CardInfo title={"Login Information"} />
         </Container>
       </Container>
     );

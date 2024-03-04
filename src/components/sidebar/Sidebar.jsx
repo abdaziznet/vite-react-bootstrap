@@ -61,7 +61,7 @@ class SideBar extends React.Component {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link className="text-light" href="/">
+            <Nav.Link className="text-light" href="/VerificationImage">
               <FontAwesomeIcon icon={faUserCheck} className="custom-icon" />
               Verification Images
             </Nav.Link>
