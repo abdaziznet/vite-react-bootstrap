@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { Container } from "react-bootstrap";
 import NavBar from "../../components/content/Navbar";
 import "../../App.css";
-import FormExample from "../../components/validation/FormExample";
+import InquiryFilterCriteria from "../../components/forms/InquiryFilterCriteria";
 
 class VerificationImage extends React.Component {
   render() {
@@ -13,7 +13,7 @@ class VerificationImage extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <FormExample />
+        <InquiryFilterCriteria title={"List of User Verification Images"} />
       </Container>
     );
   }

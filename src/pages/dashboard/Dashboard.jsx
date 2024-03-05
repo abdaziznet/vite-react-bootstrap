@@ -60,7 +60,7 @@ class Dashboard extends React.Component {
                   desc={
                     "Some quick example text to build on the card title and make up the bulk of the card's content."
                   }
-                  linkTo={"/ReconstructImage"}
+                  linkTo={"/VerificationImage"}
                 />
               </td>
               <td className="align-top">
@@ -70,7 +70,7 @@ class Dashboard extends React.Component {
                   desc={
                     "Some quick example text to build on the card title and make up the bulk of the card's content."
                   }
-                  linkTo={"/ReconstructImage"}
+                  linkTo={"/Configuration"}
                 />
               </td>
             </tr>

@@ -18,7 +18,7 @@ function CardInfo({ title }) {
             <tr>
               <td>Name</td>
               <td>: Alessandro Delpiero</td>
-              <td>Group user</td>
+              <td>User Group</td>
               <td>: Manager</td>
             </tr>
             <br />

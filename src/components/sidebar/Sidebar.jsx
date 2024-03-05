@@ -68,14 +68,14 @@ class SideBar extends React.Component {
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link className="text-light" s href="/">
+            <Nav.Link className="text-light" s href="/ActivityUser">
               <FontAwesomeIcon icon={faTableList} className="custom-icon" />
               Activity User
             </Nav.Link>
           </Nav.Item>
 
           <Nav.Item>
-            <Nav.Link className="text-light" s href="/">
+            <Nav.Link className="text-light" s href="/Configuration">
               <FontAwesomeIcon icon={faGear} className="custom-icon" />
               Configuration
             </Nav.Link>

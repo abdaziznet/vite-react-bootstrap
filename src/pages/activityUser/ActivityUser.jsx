@@ -3,9 +3,9 @@ import classNames from "classnames";
 import { Container } from "react-bootstrap";
 import NavBar from "../../components/content/Navbar";
 import "../../App.css";
-import InquiryFilterCriteria from "../../components/forms/InquiryFilterCriteria";
+import InquiryActivityUser from "../../components/forms/InquiryActivityUser";
 
-class ReconstructImage extends React.Component {
+class ActivityUser extends React.Component {
   render() {
     return (
       <Container
@@ -13,10 +13,10 @@ class ReconstructImage extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <InquiryFilterCriteria title={"List of User Reconstruct Images"} />
+        <InquiryActivityUser title={"List of Activity User"} />
       </Container>
     );
   }
 }
 
-export default ReconstructImage;
+export default ActivityUser;

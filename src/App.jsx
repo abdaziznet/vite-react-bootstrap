@@ -5,6 +5,8 @@ import SideBar from "./components/sidebar/Sidebar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import ReconstructImage from "./pages/reconstructImage/Reconstructimage";
 import VerificationImage from "./pages/verificationImage/Verificationimage";
+import ActivityUser from "./pages/activityUser/ActivityUser";
+import Configuration from "./pages/configuration/Configuration";
 
 class App extends React.Component {
   constructor(props) {
@@ -79,6 +81,21 @@ class App extends React.Component {
               path="verificationImage"
               element={
                 <VerificationImage
+                  toggle={this.toggle}
+                  isOpen={this.state.isOpen}
+                />
+              }
+            />
+            <Route
+              path="activityUser"
+              element={
+                <ActivityUser toggle={this.toggle} isOpen={this.state.isOpen} />
+              }
+            />
+            <Route
+              path="Configuration"
+              element={
+                <Configuration
                   toggle={this.toggle}
                   isOpen={this.state.isOpen}
                 />
