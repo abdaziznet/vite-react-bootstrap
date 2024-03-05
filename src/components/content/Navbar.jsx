@@ -2,9 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faAlignJustify,
-  faCircleRight,
   faCircleUser,
-  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { Navbar, Button, Nav, Container } from "react-bootstrap";
 import "./navbar.css";

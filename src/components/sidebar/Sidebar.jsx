@@ -1,26 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faHome,
-  faBriefcase,
-  faPaperPlane,
-  faQuestion,
-  faImage,
-  faCopy,
   faTimes,
-  faTachometer,
   faFingerprint,
   faUserCheck,
   faTableList,
   faGear,
   faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
-import SubMenu from "./Submenu";
-import { Nav, Button } from "react-bootstrap";
+import { Nav, Button, Image } from "react-bootstrap";
 import classNames from "classnames";
 import "./sidebar.css";
 import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
-import Image from "react-bootstrap/Image";
 
 class SideBar extends React.Component {
   render() {

@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import "./card.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleChevronRight,
-  faEllipsisVertical,
-} from "@fortawesome/free-solid-svg-icons";
+import { faCircleChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { Button, Card } from "react-bootstrap";
 
 function CardItem({ img, title, desc, linkTo }) {

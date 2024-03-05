@@ -1,6 +1,6 @@
 import React from "react";
 import classNames from "classnames";
-import { Container } from "react-bootstrap";
+import { Container, Table } from "react-bootstrap";
 import NavBar from "../../components/content/Navbar";
 import CardItem from "../../components/content/Card";
 import "../../App.css";
@@ -9,7 +9,6 @@ import Img3 from "/img/finger 3.jpg";
 import Img4 from "/img/finger 4.jpg";
 import "./dashboard.css";
 import CountCard from "../../components/content/CountCard";
-import Table from "react-bootstrap/Table";
 import ListView from "../../components/content/ListView";
 import CardInfo from "../../components/content/CardInfo";
 

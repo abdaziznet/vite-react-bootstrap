@@ -1,15 +1,7 @@
 import { faCancel, faSave } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import {
-  Card,
-  Container,
-  Form,
-  Button,
-  Col,
-  InputGroup,
-  Row,
-} from "react-bootstrap";
+import { Card, Container, Form, Button, Col, Row } from "react-bootstrap";
 
 function ConfigurationItem({ title }) {
   const [validated, setValidated] = useState(false);

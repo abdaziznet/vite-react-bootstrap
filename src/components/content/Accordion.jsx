@@ -1,4 +1,4 @@
-import Accordion from "react-bootstrap/Accordion";
+import { Accordion } from "react-bootstrap";
 import LoginInfo from "./LoginInfo";
 
 function AccordionItem() {
