@@ -1,4 +1,8 @@
-.content__isi {
+.container__dashboard {
   padding-left: 40px !important;
   padding-right: 40px !important;
+}
+
+.content__dashboard {
+  grid-template-columns: repeat(3, 1fr);
 }

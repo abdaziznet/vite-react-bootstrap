@@ -24,10 +24,17 @@ class SideBar extends React.Component {
             style={{ color: "#fff" }}
             className="mt-4"
           >
-            <FontAwesomeIcon icon={faTimes} pull="right" size="xs" />
+            <Nav.Link className="text-black" href="/">
+              <FontAwesomeIcon icon={faTimes} pull="right" size="xs" />
+            </Nav.Link>
           </Button>
-          {/* <img src="/img/Logo-BCA.png"></img> */}
-          <Image src="/img/Logo-BCA-bg-white.png" fluid />
+          <div className="logo__container">
+            <Image
+              src="/img/Logo-BCA-bg-white.png"
+              fluid
+              className="logo__img"
+            />
+          </div>
         </div>
 
         <Nav className="flex-column pt-2">

@@ -1,5 +1,4 @@
 import { Card, Table } from "react-bootstrap";
-import "./cardinfo.css";
 
 function CardInfo({ title }) {
   return (

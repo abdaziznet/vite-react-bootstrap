@@ -151,3 +151,47 @@ li a.dropdown-toggle::after {
   text-align: center;
   line-height: 60px;
 }
+
+.grid {
+  display: grid;
+  gap: 10px;
+  margin-inline: auto;
+  padding-inline: 15px;
+  padding-bottom: 30px;
+}
+
+.card__custom {
+  padding-bottom: 30px !important;
+}
+
+.breadcrumb__custom {
+  position: fixed !important;
+  left: 14%;
+  top: 10%;
+}
+
+@media (max-width: 768px) {
+  .breadcrumb__custom {
+    display: none;
+  }
+
+  .logo__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 40px;
+  }
+
+  .logo__img {
+    display: flex;
+    width: 235px;
+  }
+
+  .sidebar-header {
+    background: #fff;
+  }
+
+  .body {
+    overflow-y: scroll; /* Show vertical scrollbar on overflow */
+  }
+}

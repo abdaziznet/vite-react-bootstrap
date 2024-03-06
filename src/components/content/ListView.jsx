@@ -1,7 +1,7 @@
 import { Table } from "react-bootstrap";
 import "./listview.css";
 
-function ListView() {
+function ListView({ data }) {
   return (
     <div style={{ height: "550px", overflowY: "auto" }}>
       <Table
@@ -9,7 +9,7 @@ function ListView() {
         bordered
         hover
         size="sm"
-        className="text-center table__fixed__header"
+        className="text-center table__fixed__header card__custom"
       >
         <thead>
           <tr>
@@ -18,70 +18,13 @@ function ListView() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>0100-000</td>
-            <td>20%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
-          <tr>
-            <td>0100-000</td>
-            <td>30%</td>
-          </tr>
+          {data.map((item, index) => (
+            <tr key={index}>
+              {Object.values(item).map((value, subIndex) => (
+                <td key={subIndex}>{value}</td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>

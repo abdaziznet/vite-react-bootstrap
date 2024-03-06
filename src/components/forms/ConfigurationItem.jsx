@@ -22,7 +22,7 @@ function ConfigurationItem({ title }) {
         <Card.Header as="h6">{title}</Card.Header>
         <Card.Body>
           <Container fluid>
-            <Form>
+            <Form noValidate validated={validated} onSubmit={handleSubmit}>
               <Form.Group
                 as={Row}
                 className="mb-3"
@@ -32,7 +32,14 @@ function ConfigurationItem({ title }) {
                   Service URL
                 </Form.Label>
                 <Col sm={10}>
-                  <Form.Control type="text" placeholder="Service URL" />
+                  <Form.Control
+                    required
+                    type="text"
+                    placeholder="Service URL"
+                  />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid service url.
+                  </Form.Control.Feedback>
                 </Col>
               </Form.Group>
 
@@ -45,7 +52,10 @@ function ConfigurationItem({ title }) {
                   Page Size
                 </Form.Label>
                 <Col sm={10}>
-                  <Form.Control type="text" placeholder="Page Size " />
+                  <Form.Control required type="text" placeholder="Page Size " />
+                  <Form.Control.Feedback type="invalid">
+                    Please provide a valid page size.
+                  </Form.Control.Feedback>
                 </Col>
               </Form.Group>
               <Form.Group as={Row} className="mb-3">
@@ -64,7 +74,6 @@ function ConfigurationItem({ title }) {
           </Container>
         </Card.Body>
       </Card>
-      <br />
     </>
   );
 }

@@ -10,6 +10,7 @@ import {
   InputGroup,
   Row,
 } from "react-bootstrap";
+import { EnumOfActivity, EnumOfOrderBy, EnumOfSortBy } from "../../data";
 
 function InquiryActivityUser({ title }) {
   const [validated, setValidated] = useState(false);
@@ -74,28 +75,35 @@ function InquiryActivityUser({ title }) {
                   <Form.Label>Activity</Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control as="select">
-                      <option value="1">Login</option>
-                      <option value="2">Reconstruct Image</option>
-                      <option value="3">Verification Image</option>
+                      {EnumOfActivity.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.label}
+                        </option>
+                      ))}
                     </Form.Control>
                   </InputGroup>
                 </Form.Group>
                 <Form.Group as={Col} md="2" controlId="validationCustom05">
-                  <Form.Label>Order</Form.Label>
+                  <Form.Label>Order by</Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control as="select">
-                      <option value="1">Branch Code</option>
-                      <option value="2">Office Code</option>
-                      <option value="3">Created Date</option>
+                      {EnumOfOrderBy.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.label}
+                        </option>
+                      ))}
                     </Form.Control>
                   </InputGroup>
                 </Form.Group>
                 <Form.Group as={Col} md="2" controlId="validationCustom06">
-                  <Form.Label>By</Form.Label>
+                  <Form.Label>Sort by</Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control as="select">
-                      <option value="1">Ascending</option>
-                      <option value="2">Descending</option>
+                      {EnumOfSortBy.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.label}
+                        </option>
+                      ))}
                     </Form.Control>
                   </InputGroup>
                 </Form.Group>

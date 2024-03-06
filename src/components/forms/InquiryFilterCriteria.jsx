@@ -11,7 +11,7 @@ import {
   Row,
 } from "react-bootstrap";
 
-function InquiryFilterCriteria({ title }) {
+function InquiryFilterCriteria({ title, data }) {
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
@@ -54,9 +54,11 @@ function InquiryFilterCriteria({ title }) {
                   <Form.Label>User Group</Form.Label>
                   <InputGroup hasValidation>
                     <Form.Control as="select">
-                      <option value="1">Select All</option>
-                      <option value="2">Manager</option>
-                      <option value="3">Enroller</option>
+                      {data.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.label}
+                        </option>
+                      ))}
                     </Form.Control>
                   </InputGroup>
                 </Form.Group>

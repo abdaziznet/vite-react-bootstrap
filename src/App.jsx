@@ -7,6 +7,7 @@ import ReconstructImage from "./pages/reconstructImage/Reconstructimage";
 import VerificationImage from "./pages/verificationImage/Verificationimage";
 import ActivityUser from "./pages/activityUser/ActivityUser";
 import Configuration from "./pages/configuration/Configuration";
+import BreadcrumbComponent from "./components/content/BreadCrumb";
 
 class App extends React.Component {
   constructor(props) {
@@ -61,6 +62,7 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App wrapper">
           <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
+          <BreadcrumbComponent />
           <Routes>
             <Route
               index
@@ -93,7 +95,7 @@ class App extends React.Component {
               }
             />
             <Route
-              path="Configuration"
+              path="configuration"
               element={
                 <Configuration
                   toggle={this.toggle}

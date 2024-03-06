@@ -4,7 +4,7 @@ import {
   faAlignJustify,
   faCircleUser,
 } from "@fortawesome/free-solid-svg-icons";
-import { Navbar, Button, Nav, Container } from "react-bootstrap";
+import { Navbar, Button, Nav } from "react-bootstrap";
 import "./navbar.css";
 
 class NavBar extends React.Component {
