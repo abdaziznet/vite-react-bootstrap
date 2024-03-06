@@ -25,7 +25,7 @@ function CardInfo({ title }) {
             <tr>
               <td>Branch Code</td>
               <td>: 0100</td>
-              <td>Login Time</td>
+              <td>Last Login</td>
               <td>: 07/02/2024 08:00:21</td>
             </tr>
           </Table>
