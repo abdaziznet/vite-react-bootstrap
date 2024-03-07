@@ -11,7 +11,11 @@ import {
 import { Nav, Button, Image } from "react-bootstrap";
 import classNames from "classnames";
 import "./sidebar.css";
-import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGitlab,
+  faGitlabSquare,
+  faMicrosoft,
+} from "@fortawesome/free-brands-svg-icons";
 
 class SideBar extends React.Component {
   render() {
@@ -76,6 +80,13 @@ class SideBar extends React.Component {
             <Nav.Link className="text-light" s href="/Configuration">
               <FontAwesomeIcon icon={faGear} className="custom-icon" />
               Configuration
+            </Nav.Link>
+          </Nav.Item>
+
+          <Nav.Item>
+            <Nav.Link className="text-light" s href="/Sample">
+              <FontAwesomeIcon icon={faGitlab} className="custom-icon" />
+              Sample
             </Nav.Link>
           </Nav.Item>
 
