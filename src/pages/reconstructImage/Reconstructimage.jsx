@@ -4,7 +4,7 @@ import { Container } from "react-bootstrap";
 import NavBar from "../../components/content/Navbar";
 import "../../App.css";
 import InquiryFilterCriteria from "../../components/forms/InquiryFilterCriteria";
-import { EnumOfUserGroupBCA } from "../../data";
+import { EnumOfUserGroupBCA, ListOfUserReconstructImage } from "../../data";
 
 class ReconstructImage extends React.Component {
   render() {
@@ -16,7 +16,8 @@ class ReconstructImage extends React.Component {
         <NavBar toggle={this.props.toggle} />
         <InquiryFilterCriteria
           title={"List of User Reconstruct Images"}
-          data={EnumOfUserGroupBCA}
+          dropDownData={EnumOfUserGroupBCA}
+          listData={ListOfUserReconstructImage}
         />
       </Container>
     );

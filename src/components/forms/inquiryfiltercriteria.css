@@ -1,0 +1,11 @@
+#listOfUser {
+  display: none;
+}
+
+.list__of__user {
+  padding-top: 70px;
+}
+
+.btn__search {
+  margin-left: 10px;
+}
