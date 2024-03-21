@@ -228,3 +228,24 @@ export const ListOfUserReconstructImage = [
     status: "Not Complete",
   },
 ];
+
+export const ListOfFinger = [
+  {
+    fingerIndex: 0,
+    fingerDesc: "Telunjuk Kanan",
+    verificationResult: "Matched",
+    score: "755",
+  },
+  {
+    fingerIndex: 1,
+    fingerDesc: "Jempol Kanan",
+    verificationResult: "Matched",
+    score: "850",
+  },
+  {
+    fingerIndex: 2,
+    fingerDesc: "Jempol Kiri",
+    verificationResult: "",
+    score: "",
+  },
+];

@@ -1,0 +1,56 @@
+[{
+    "id": 1,
+    "userId": "123456",
+    "name": "Abdul Gani",
+    "userGroup": "Manager",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Completed"
+  },
+  {
+    "id": 2,
+    "userId": "567890",
+    "name": "Aisyah",
+    "userGroup": "Enroller",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete"
+  },
+  {
+    "id": 3,
+    "userId": "423658",
+    "name": "Khalid",
+    "userGroup": "User",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Completed"
+  },
+  {
+    "id": 4,
+    "userId": "987123",
+    "name": "Ummu Salamah",
+    "userGroup": "Reporter",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete"
+  },
+  {
+    "id": 5,
+    "userId": "890736",
+    "name": "Al Farabi",
+    "userGroup": "Enroller",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Completed"
+  },
+  {
+    "id": 6,
+    "userId": "198764",
+    "name": "Soleh",
+    "userGroup": "User",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete"
+  }
+]
+

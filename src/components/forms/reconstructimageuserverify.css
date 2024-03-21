@@ -1,0 +1,66 @@
+.img__finger {
+  padding-top: 30px;
+}
+
+.chk__0 {
+  position: fixed;
+  top: 470px;
+}
+
+.chk__1 {
+  position: fixed;
+  top: 405px;
+  left: 890px;
+}
+
+.chk__2 {
+  position: fixed;
+  top: 380px;
+  left: 955px;
+}
+
+.chk__3 {
+  position: fixed;
+  top: 390px;
+  left: 1020px;
+}
+
+.chk__4 {
+  position: fixed;
+  top: 520px;
+  left: 1110px;
+}
+
+.chk__5 {
+  position: fixed;
+  top: 520px;
+  right: 860px;
+}
+
+.chk__6 {
+  position: fixed;
+  top: 390px;
+  right: 775px;
+}
+
+.chk__7 {
+  position: fixed;
+  top: 380px;
+  right: 705px;
+}
+
+.chk__8 {
+  position: fixed;
+  top: 405px;
+  right: 635px;
+}
+
+.chk__9 {
+  position: fixed;
+  top: 470px;
+  right: 595px;
+}
+
+.list__finger {
+  padding-top: 20px;
+}

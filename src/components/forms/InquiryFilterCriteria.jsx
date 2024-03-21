@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faRotate, faSearch } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { faRotate, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useState, React } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Card,
   Container,
@@ -39,13 +40,27 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+    }
     setValidated(true);
 
-    if (validated) {
+    if (validateForm(formData)) {
       showList();
     } else {
       hiddenList();
     }
+  };
+
+  const validateForm = (data) => {
+    let result = true;
+
+    if (!data.userId.trim()) {
+      result = false;
+    }
+
+    return result;
   };
 
   const handleReset = (e) => {
@@ -74,6 +89,12 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
     }
   }
 
+  const navigate = useNavigate();
+  const handleRowDoubleClick = (id) => {
+    // Redirect to detail page with the selected ID
+    navigate(`/ReconstructImage/UserVerify/${id}`);
+  };
+
   return (
     <>
       <Card>
@@ -82,17 +103,6 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
           <Container fluid>
             <Form noValidate validated={validated}>
               <Row className="mb-3">
-                {/* <Form.Group as={Col} md="4" controlId="validationCustom01">
-                  <Form.Label>NIP / NIK / Vendor NIP</Form.Label>
-                  <Form.Control
-                    required
-                    type="text"
-                    placeholder="NIP / NIP / Vendor NIP"
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid nip /nik / vendor nip.
-                  </Form.Control.Feedback>
-                </Form.Group> */}
                 <Form.Group as={Col} md="4" controlId="userId">
                   <InputGroup className="mb-3">
                     <InputGroup.Text>NIP / NIP / Vendor NIP</InputGroup.Text>
@@ -103,22 +113,14 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                       placeholder="NIP / NIP / Vendor NIP"
                       value={formData.userId}
                       onChange={changeData}
-                      pattern="[0-9]*"
+                      //pattern="[0-9]*"
                       maxLength={7}
-                      //isInvalid={validated && !/^[0-9]*$/.test(formData.userId)}
                     />
                     <Form.Control.Feedback type="invalid">
-                      Nip /nik / vendor nip is required field.
+                      User Id is required field.
                     </Form.Control.Feedback>
                   </InputGroup>
                 </Form.Group>
-                {/* <Form.Group as={Col} md="4" controlId="validationCustom02">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control required type="text" placeholder="Name" />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid name.
-                  </Form.Control.Feedback>
-                </Form.Group> */}
                 <Form.Group as={Col} md="4" controlId="name">
                   <InputGroup className="mb-3">
                     <InputGroup.Text>Name</InputGroup.Text>
@@ -135,18 +137,6 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                     </Form.Control.Feedback>
                   </InputGroup>
                 </Form.Group>
-                {/* <Form.Group as={Col} md="4" controlId="validationCustom03">
-                  <Form.Label>User Group</Form.Label>
-                  <InputGroup hasValidation>
-                    <Form.Control as="select">
-                      {data.map((item) => (
-                        <option key={item.id} value={item.id}>
-                          {item.label}
-                        </option>
-                      ))}
-                    </Form.Control>
-                  </InputGroup>
-                </Form.Group> */}
                 <Form.Group as={Col} md="4" controlId="userGroup">
                   <InputGroup className="mb-3">
                     <InputGroup.Text>User Group</InputGroup.Text>
@@ -166,17 +156,6 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                 </Form.Group>
               </Row>
               <Row className="mb-3">
-                {/* <Form.Group as={Col} md="4" controlId="validationCustom03">
-                  <Form.Label>Branch Code</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Branch Code"
-                    required
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid branch code.
-                  </Form.Control.Feedback>
-                </Form.Group> */}
                 <Form.Group as={Col} md="4" controlId="branchCode">
                   <InputGroup className="mb-3">
                     <InputGroup.Text>Branch Code</InputGroup.Text>
@@ -193,17 +172,6 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                     </Form.Control.Feedback>
                   </InputGroup>
                 </Form.Group>
-                {/* <Form.Group as={Col} md="3" controlId="validationCustom04">
-                  <Form.Label>Office Code</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Office Code"
-                    required
-                  />
-                  <Form.Control.Feedback type="invalid">
-                    Please provide a valid office code.
-                  </Form.Control.Feedback>
-                </Form.Group> */}
                 <Form.Group as={Col} md="4" controlId="validationCustom05">
                   <InputGroup className="mb-3">
                     <InputGroup.Text id="basic-addon5">
@@ -255,7 +223,10 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                 </thead>
                 <tbody>
                   {listData.map((item, index) => (
-                    <tr key={index}>
+                    <tr
+                      onDoubleClick={() => handleRowDoubleClick(item.id)}
+                      key={index}
+                    >
                       {Object.values(item).map((value, subIndex) => (
                         <td key={subIndex}>{value}</td>
                       ))}
