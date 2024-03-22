@@ -8,7 +8,6 @@ import VerificationImage from "./pages/verificationImage/Verificationimage";
 import ActivityUser from "./pages/activityUser/ActivityUser";
 import Configuration from "./pages/configuration/Configuration";
 import BreadcrumbComponent from "./components/content/BreadCrumb";
-import Sample from "./pages/sample/Sample";
 import UserVerify from "./pages/reconstructImage/Userverify";
 
 class App extends React.Component {
@@ -109,12 +108,6 @@ class App extends React.Component {
                   toggle={this.toggle}
                   isOpen={this.state.isOpen}
                 />
-              }
-            />
-            <Route
-              path="sample"
-              element={
-                <Sample toggle={this.toggle} isOpen={this.state.isOpen} />
               }
             />
           </Routes>

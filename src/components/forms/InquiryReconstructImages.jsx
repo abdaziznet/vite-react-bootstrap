@@ -12,9 +12,9 @@ import {
   Row,
   Table,
 } from "react-bootstrap";
-import "./inquiryfiltercriteria.css";
+import "./inquiryreconstructimages.css";
 
-function InquiryFilterCriteria({ title, dropDownData, listData }) {
+function InquiryReconstructImages({ title, dropDownData, listData }) {
   const [validated, setValidated] = useState(false);
   const initialFormState = {
     userId: "",
@@ -111,10 +111,9 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                       type="text"
                       name="userId"
                       placeholder="NIP / NIP / Vendor NIP"
+                      maxLength={7}
                       value={formData.userId}
                       onChange={changeData}
-                      //pattern="[0-9]*"
-                      maxLength={7}
                     />
                     <Form.Control.Feedback type="invalid">
                       User Id is required field.
@@ -129,6 +128,7 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                       type="text"
                       name="name"
                       placeholder="Name"
+                      maxLength={32}
                       value={formData.name}
                       onChange={changeData}
                     />
@@ -164,6 +164,7 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                       type="text"
                       name="branchCode"
                       placeholder="Branch Code"
+                      maxLength={4}
                       value={formData.branchCode}
                       onChange={changeData}
                     />
@@ -182,6 +183,7 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                       type="text"
                       name="officeCode"
                       placeholder="Office Code"
+                      maxLength={4}
                       value={formData.officeCode}
                       onChange={changeData}
                     />
@@ -213,7 +215,6 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
             <div id="listOfUser" className="list__of__user">
               <Table responsive striped bordered hover>
                 <thead>
-                  <th>#</th>
                   <th>NIP / NIK/ Vendor NIP</th>
                   <th>Name</th>
                   <th>User Group</th>
@@ -222,14 +223,17 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
                   <th>Reconstruct Fingerprint Image Status</th>
                 </thead>
                 <tbody>
-                  {listData.map((item, index) => (
+                  {listData.map((item) => (
                     <tr
+                      key={item.id}
                       onDoubleClick={() => handleRowDoubleClick(item.id)}
-                      key={index}
                     >
-                      {Object.values(item).map((value, subIndex) => (
-                        <td key={subIndex}>{value}</td>
-                      ))}
+                      <td>{item.userId}</td>
+                      <td>{item.name}</td>
+                      <td>{item.userGroup}</td>
+                      <td>{item.branchCode}</td>
+                      <td>{item.officeCode}</td>
+                      <td>{item.status}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -242,4 +246,4 @@ function InquiryFilterCriteria({ title, dropDownData, listData }) {
   );
 }
 
-export default InquiryFilterCriteria;
+export default InquiryReconstructImages;

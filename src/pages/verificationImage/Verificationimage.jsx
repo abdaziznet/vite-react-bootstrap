@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { Container } from "react-bootstrap";
 import NavBar from "../../components/content/Navbar";
 import "../../App.css";
-import InquiryFilterCriteria from "../../components/forms/InquiryFilterCriteria";
 import { EnumOfUserGroupBCA, ListOfUserReconstructImage } from "../../data";
+import InquiryVerificationImages from "../../components/forms/InquiryVerificationImages";
 
 class VerificationImage extends React.Component {
   render() {
@@ -14,7 +14,7 @@ class VerificationImage extends React.Component {
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
         <NavBar toggle={this.props.toggle} />
-        <InquiryFilterCriteria
+        <InquiryVerificationImages
           title={"List of User Verification Images"}
           dropDownData={EnumOfUserGroupBCA}
           listData={ListOfUserReconstructImage}

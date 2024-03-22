@@ -48,34 +48,39 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
           <Form>
             <Row className="mb-3">
               <Form.Group as={Col} md="4" controlId="userId">
-                <Form.Label column sm="6">
+                <Form.Label column sm="6" className="frm__label">
                   NIP / NIK / Vendor NIP
+                  {/* <Badge bg="primary" >NIP / NIK / Vendor NIP</Badge> */}
                 </Form.Label>
                 <Form.Label>: {item.userId}</Form.Label>
               </Form.Group>
               <Form.Group as={Col} md="4" controlId="branchCode">
-                <Form.Label column sm="6">
+                <Form.Label column sm="6" className="frm__label">
                   Name
+                  {/* <Badge bg="primary">Name</Badge> */}
                 </Form.Label>
                 <Form.Label>: {item.name}</Form.Label>
               </Form.Group>
               <Form.Group as={Col} md="4" controlId="branchCode">
-                <Form.Label column sm="6">
+                <Form.Label column sm="6" className="frm__label">
                   User Group
+                  {/* <Badge bg="primary">User Group</Badge> */}
                 </Form.Label>
                 <Form.Label>: {item.userGroup}</Form.Label>
               </Form.Group>
             </Row>
             <Row className="mb-3">
               <Form.Group as={Col} md="4" controlId="userId">
-                <Form.Label column sm="6">
+                <Form.Label column sm="6" className="frm__label">
                   Branch Code
+                  {/* <Badge bg="primary">Branch Code</Badge> */}
                 </Form.Label>
                 <Form.Label>: {item.branchCode}</Form.Label>
               </Form.Group>
               <Form.Group as={Col} md="4" controlId="branchCode">
-                <Form.Label column sm="6">
+                <Form.Label column sm="6" className="frm__label">
                   Office Code
+                  {/* <Badge bg="primary">Office Code</Badge> */}
                 </Form.Label>
                 <Form.Label>: {item.officeCode}</Form.Label>
               </Form.Group>
@@ -91,7 +96,6 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
                 </div>
               </div>
             </div>
-
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-auto">

@@ -10,7 +10,7 @@
 .chk__1 {
   position: fixed;
   top: 405px;
-  left: 890px;
+  left: 880px;
 }
 
 .chk__2 {
@@ -62,5 +62,9 @@
 }
 
 .list__finger {
-  padding-top: 20px;
+  padding-top: 60px;
+}
+
+.frm__label {
+  font-weight: 500;
 }

@@ -83,13 +83,6 @@ class SideBar extends React.Component {
             </Nav.Link>
           </Nav.Item>
 
-          <Nav.Item>
-            <Nav.Link className="text-light" s href="/Sample">
-              <FontAwesomeIcon icon={faGitlab} className="custom-icon" />
-              Sample
-            </Nav.Link>
-          </Nav.Item>
-
           <Button variant="danger" size="lg" className="btn__logout">
             <FontAwesomeIcon icon={faSignOut} pull="left" size="xl" />
             Logout & Exit
