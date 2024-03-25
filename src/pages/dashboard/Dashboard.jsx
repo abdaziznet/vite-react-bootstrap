@@ -11,22 +11,62 @@ import "./dashboard.css";
 import CountCard from "../../components/content/CountCard";
 import ListView from "../../components/content/ListView";
 import CardInfo from "../../components/content/CardInfo";
-import { CardMenu, CardSummary, ListViewPercentage } from "../../data";
+import { ListViewPercentage } from "../../data";
 
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: null,
+      isLoading: true,
+      error: null,
+    };
+  }
+
+  componentDidMount() {
+    fetch("/src/dummy/dashboard.json")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({
+          data: data,
+          isLoading: false,
+        });
+      })
+      .catch((error) => {
+        this.setState({
+          error: error,
+          isLoading: false,
+        });
+      });
+  }
   render() {
+    const { data, isLoading, error } = this.state;
+
+    if (isLoading) {
+      return <div>Loading...</div>;
+    }
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    }
+
     return (
       <Container
         fluid
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
-        <NavBar toggle={this.props.toggle} />
+        <NavBar toggle={this.props.toggle} loginName={data.loginInfo["name"]} />
 
         <Container fluid className="container__dashboard">
           <Row>
             {/* First Column */}
             <Col md={3}>
-              <CountCard title={"Branch Total"} value={"40"} />
+              <CountCard title={"Branch Total"} value={data.branchTotal} />
               <Row>
                 {/* First Nested Column */}
                 <Col md={3}>
@@ -44,7 +84,10 @@ class Dashboard extends React.Component {
 
             {/* Second Column */}
             <Col md={3}>
-              <CountCard title={"Reconstruct Images"} value={"20"} />
+              <CountCard
+                title={"Reconstruct Images"}
+                value={data.reconstructImagesTotal}
+              />
               <Row>
                 {/* First Nested Column */}
                 <Col md={3}>
@@ -62,7 +105,7 @@ class Dashboard extends React.Component {
 
             {/* Third Column */}
             <Col md={3}>
-              <CountCard title={"User Total"} value={"100"} />
+              <CountCard title={"User Total"} value={data.userTotal} />
               <Row>
                 {/* First Nested Column */}
                 <Col md={3}>
@@ -80,85 +123,15 @@ class Dashboard extends React.Component {
 
             {/* four Column */}
             <Col md={3}>
-              <ListView data={ListViewPercentage} />
+              <ListView data={data.branchPercentage} />
             </Col>
           </Row>
           <Row>
             <Col md={9}>
-              <CardInfo title={"Login Information"} />
+              <CardInfo title={"Login Information"} data={data.loginInfo} />
             </Col>
           </Row>
         </Container>
-
-        {/* <Container className="container__dashboard" fluid> */}
-        {/* <div className="content__dashboard grid">
-            {CardSummary.map((item) => {
-              return <CountCard key={item.id} {...item} />;
-            })}
-          </div>
-          <div className="content__dashboard grid">
-            {CardMenu.map((item) => {
-              return <CardItem key={item.id} {...item} />;
-            })}
-          </div> */}
-
-        {/* <Table responsive>
-            <tr>
-              <td className="align-top">
-                <CountCard title={"Branch Total"} value={"40"} />
-              </td>
-              <td className="align-top">
-                <CountCard title={"Reconstruct Images"} value={"20"} />
-              </td>
-              <td className="align-top">
-                <CountCard title={"User Total"} value={"100"} />
-              </td>
-              <td rowSpan={2} className="align-top">
-                <ListView />
-              </td>
-            </tr>
-            <tr>
-              <td className="align-top">
-                <CardItem
-                  img={Img2}
-                  title={"Reconstruct Images"}
-                  desc={
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  }
-                  linkTo={"/ReconstructImage"}
-                />
-              </td>
-              <td className="align-top">
-                <CardItem
-                  img={Img3}
-                  title={"Verification Images"}
-                  desc={
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  }
-                  linkTo={"/VerificationImage"}
-                />
-              </td>
-              <td className="align-top">
-                <CardItem
-                  img={Img4}
-                  title={"Configuration"}
-                  desc={
-                    "Some quick example text to build on the card title and make up the bulk of the card's content."
-                  }
-                  linkTo={"/Configuration"}
-                />
-              </td>
-            </tr>
-            <tr>
-              <td className="align-top" colSpan={3}>
-                <CardInfo title={"Login Information"} />
-              </td>
-            </tr>
-            <tr>
-              <td className="align-top" colSpan={3}></td>
-            </tr>
-          </Table> */}
-        {/* </Container> */}
       </Container>
     );
   }

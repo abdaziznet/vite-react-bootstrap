@@ -1,0 +1,14 @@
+{
+    "branchTotal" :30,
+    "reconstructImagesTotal" : 15,
+    "userTotal" : 3568,
+    "loginInfo": {
+        "loginId":"123456",
+        "name":"Abdul Aziz",
+        "branchCode":"0100",
+        "officeCode":"000",
+        "userGroup":"Manager",
+        "lastLogin":"07/02/2024 08:00:21"
+    },
+    "branchPercentage":[{"branchCode" : "0100-000","percentage":"80%"},{"branchCode" : "0011-000","percentage":"40%"},{"branchCode" : "0012-000","percentage":"20%"},{"branchCode" : "0013-000","percentage":"58%"},{"branchCode" : "0014-000","percentage":"34%"},{"branchCode" : "0111-000","percentage":"9%"},{"branchCode" : "0112-000","percentage":"29%"},{"branchCode" : "0113-000","percentage":"19%"},{"branchCode" : "0114-000","percentage":"43%"},{"branchCode" : "1112-000","percentage":"70%"},{"branchCode" : "1113-000","percentage":"50%"},{"branchCode" : "1114-000","percentage":"50%"},{"branchCode" : "1115-000","percentage":"50%"},{"branchCode" : "1115-000","percentage":"65%"},{"branchCode" : "1116-000","percentage":"90%"},{"branchCode" : "1117-000","percentage":"89%"},{"branchCode" : "1118-000","percentage":"55%"}]
+}

@@ -1,6 +1,6 @@
 import { Card, Table } from "react-bootstrap";
 
-function CardInfo({ title }) {
+function CardInfo({ title, data }) {
   return (
     <>
       <Card>
@@ -9,23 +9,23 @@ function CardInfo({ title }) {
           <Table responsive>
             <tr>
               <td>Login ID</td>
-              <td>: 000000</td>
+              <td>: {data.loginId}</td>
               <td>Office Code</td>
-              <td>: 000</td>
+              <td>: {data.officeCode}</td>
             </tr>
             <br />
             <tr>
               <td>Name</td>
-              <td>: Alessandro Delpiero</td>
+              <td>: {data.name}</td>
               <td>User Group</td>
-              <td>: Manager</td>
+              <td>: {data.userGroup}</td>
             </tr>
             <br />
             <tr>
               <td>Branch Code</td>
-              <td>: 0100</td>
+              <td>: {data.branchCode}</td>
               <td>Last Login</td>
-              <td>: 07/02/2024 08:00:21</td>
+              <td>: {data.lastLogin}</td>
             </tr>
           </Table>
         </Card.Body>

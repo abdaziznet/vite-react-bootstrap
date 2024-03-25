@@ -28,7 +28,7 @@ class NavBar extends React.Component {
         >
           <Nav className="ml-auto" navbar>
             <Navbar.Text className="text-light">
-              <a>Mark Otto</a>
+              <a>{this.props.loginName}</a>
             </Navbar.Text>
             <FontAwesomeIcon icon={faCircleUser} className="icon__userlogin" />
           </Nav>

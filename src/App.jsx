@@ -9,6 +9,7 @@ import ActivityUser from "./pages/activityUser/ActivityUser";
 import Configuration from "./pages/configuration/Configuration";
 import BreadcrumbComponent from "./components/content/BreadCrumb";
 import UserVerify from "./pages/reconstructImage/Userverify";
+import ErrorPage from "./pages/error/ErrorPage";
 
 class App extends React.Component {
   constructor(props) {
@@ -108,6 +109,12 @@ class App extends React.Component {
                   toggle={this.toggle}
                   isOpen={this.state.isOpen}
                 />
+              }
+            />
+            <Route
+              path="*"
+              element={
+                <ErrorPage toggle={this.toggle} isOpen={this.state.isOpen} />
               }
             />
           </Routes>
