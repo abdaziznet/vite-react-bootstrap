@@ -79,7 +79,7 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
   }
 
   function showList() {
-    var list = document.getElementById("listOfUser");
+    var list = document.getElementById("listOfUserVerification");
     if (list) {
       // Set custom styles using the style property
       list.style.display = "block";
@@ -209,7 +209,7 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
                 Reset
               </Button>
             </Form>
-            <div id="listOfUser" className="list__of__user">
+            <div id="listOfUserVerification" className="list__of__user__verify">
               <Table responsive striped bordered hover>
                 <thead>
                   <th>NIP / NIK/ Vendor NIP</th>
@@ -217,7 +217,7 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
                   <th>User Group</th>
                   <th>Branch Code</th>
                   <th>Office Code</th>
-                  <th>Action</th>
+                  <th className="text__center">Action</th>
                 </thead>
                 <tbody>
                   {listData.map((item) => (
@@ -227,7 +227,7 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
                       <td>{item.userGroup}</td>
                       <td>{item.branchCode}</td>
                       <td>{item.officeCode}</td>
-                      <td>
+                      <td className="text__center">
                         <button
                           className="btn btn-primary btn-sm"
                           onClick={() => handleVerify(item.id)}

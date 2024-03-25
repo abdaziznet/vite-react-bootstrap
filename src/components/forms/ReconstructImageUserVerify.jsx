@@ -7,9 +7,11 @@ import {
   Container,
   Form,
   Row,
+  Spinner,
   Table,
 } from "react-bootstrap";
 import "./reconstructimageuserverify.css";
+import SpinnerWithLabel from "../content/SpinnerWithLabel";
 
 function ReconstructImageUserVerify({ title, id, dataList }) {
   const [item, setItem] = useState(null);
@@ -38,6 +40,22 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
 
   if (!item) {
     return <div>Loading...</div>;
+  }
+
+  const msgInfo = document.getElementById("msgInfo");
+
+  function handleVerification() {
+    setTimeout(() => {
+      var spinnerInfo = document.getElementById("spinnerInfo");
+      if (spinnerInfo) {
+        // Set custom styles using the style property
+        spinnerInfo.style.display = "block";
+      } else {
+        console.error("list element not found.");
+      }
+
+      msgInfo.textContent = "Please place your finger...";
+    }, 10);
   }
 
   return (
@@ -182,8 +200,15 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-auto">
-                  <Button variant="primary">Verification User</Button>
+                  <Button variant="primary" onClick={handleVerification}>
+                    Verification User
+                  </Button>
                 </div>
+                <Row className="justify-content-md-center msg__info">
+                  <Col md="auto">
+                    <SpinnerWithLabel label={""} />
+                  </Col>
+                </Row>
               </div>
             </div>
             <div className="list__finger">

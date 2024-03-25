@@ -62,9 +62,23 @@
 }
 
 .list__finger {
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 .frm__label {
   font-weight: 500;
+}
+
+.msg__info {
+  padding-top: 10px;
+}
+
+#spinnerInfo {
+  display: none;
+}
+
+.spinnner__info {
+  position: fixed;
+  margin-left: -19px;
+  margin-top: 5px;
 }

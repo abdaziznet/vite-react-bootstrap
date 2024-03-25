@@ -1,11 +1,15 @@
-#listOfUser {
+#listOfUserVerification {
   display: none;
 }
 
-.list__of__user {
+.list__of__user__verify {
   padding-top: 70px;
 }
 
 .btn__search {
   margin-left: 10px;
+}
+
+.text__center {
+  text-align: center;
 }
