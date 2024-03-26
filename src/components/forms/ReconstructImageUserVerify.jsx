@@ -7,11 +7,11 @@ import {
   Container,
   Form,
   Row,
-  Spinner,
   Table,
 } from "react-bootstrap";
 import "./reconstructimageuserverify.css";
 import SpinnerWithLabel from "../content/SpinnerWithLabel";
+import IMAGES from "../content/Assets";
 
 function ReconstructImageUserVerify({ title, id, dataList }) {
   const [item, setItem] = useState(null);
@@ -190,7 +190,7 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
                     </Col>
                   </Row>
                   <img
-                    src="/public/img/finger.png"
+                    src={IMAGES.Img_Finger}
                     alt="finger"
                     className="img-fluid img__finger"
                   />

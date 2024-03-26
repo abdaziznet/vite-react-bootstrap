@@ -1,8 +1,8 @@
 //import image data
 import { Image } from "react-bootstrap";
-import img1 from "./assets/img/finger 2.jpg";
-import img2 from "./assets/img/finger 3.jpg";
-import img3 from "./assets/img/finger 4.jpg";
+import img1 from "./assets/finger 2.jpg";
+import img2 from "./assets/finger 3.jpg";
+import img3 from "./assets/finger 4.jpg";
 
 export const SrcImage = () => {
   return <Image src={img1}></Image>;

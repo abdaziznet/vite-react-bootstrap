@@ -4,14 +4,11 @@ import { Col, Container, Row, Table } from "react-bootstrap";
 import NavBar from "../../components/content/Navbar";
 import CardItem from "../../components/content/Card";
 import "../../App.css";
-import Img2 from "/img/finger 2.jpg";
-import Img3 from "/img/finger 3.jpg";
-import Img4 from "/img/finger 4.jpg";
 import "./dashboard.css";
 import CountCard from "../../components/content/CountCard";
 import ListView from "../../components/content/ListView";
 import CardInfo from "../../components/content/CardInfo";
-import { ListViewPercentage } from "../../data";
+import IMAGES from "../../components/content/Assets";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -71,7 +68,7 @@ class Dashboard extends React.Component {
                 {/* First Nested Column */}
                 <Col md={3}>
                   <CardItem
-                    img={Img2}
+                    img={IMAGES.Img_ReconstructImages}
                     title={"Reconstruct Images"}
                     desc={
                       "Some quick example text to build on the card title and make up the bulk of the card's content."
@@ -92,7 +89,7 @@ class Dashboard extends React.Component {
                 {/* First Nested Column */}
                 <Col md={3}>
                   <CardItem
-                    img={Img3}
+                    img={IMAGES.Img_VerificationImages}
                     title={"Verification Images"}
                     desc={
                       "Some quick example text to build on the card title and make up the bulk of the card's content."
@@ -110,7 +107,7 @@ class Dashboard extends React.Component {
                 {/* First Nested Column */}
                 <Col md={3}>
                   <CardItem
-                    img={Img4}
+                    img={IMAGES.Img_Configuration}
                     title={"Configuration"}
                     desc={
                       "Some quick example text to build on the card title and make up the bulk of the card's content."

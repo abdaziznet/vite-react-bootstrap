@@ -11,11 +11,8 @@ import {
 import { Nav, Button, Image } from "react-bootstrap";
 import classNames from "classnames";
 import "./sidebar.css";
-import {
-  faGitlab,
-  faGitlabSquare,
-  faMicrosoft,
-} from "@fortawesome/free-brands-svg-icons";
+import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
+import IMAGES from "../content/Assets";
 
 class SideBar extends React.Component {
   render() {
@@ -34,7 +31,8 @@ class SideBar extends React.Component {
           </Button>
           <div className="logo__container">
             <Image
-              src="/img/Logo-BCA-bg-white.png"
+              // src="/img/Logo-BCA-bg-white.png"
+              src={IMAGES.Img_BCALogo}
               fluid
               className="logo__img"
             />

@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { Container, Image } from "react-bootstrap";
 import NavBar from "../../components/content/Navbar";
 import "../../App.css";
+import IMAGES from "../../components/content/Assets";
 
 class ErrorPage extends React.Component {
   render() {
@@ -16,7 +17,7 @@ class ErrorPage extends React.Component {
           <div className="justify-content-center">
             <div className="col-auto">
               <Image
-                src="/public/img/404.png"
+                src={IMAGES.Img_404}
                 className="img-fluid"
                 style={{ maxWidth: "100%", height: "auto" }}
               />
