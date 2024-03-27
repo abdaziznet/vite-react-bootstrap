@@ -51,6 +51,15 @@
     "branchCode": "0100",
     "officeCode": "000",
     "status": "Not Complete"
+  },
+  {
+    "id": 7,
+    "userId": "098765",
+    "name": "Hasyim",
+    "userGroup": "User",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete"
   }
 ]
 

@@ -16,6 +16,9 @@ import "./inquiryreconstructimages.css";
 
 function InquiryReconstructImages({ title, dropDownData, listData }) {
   const [validated, setValidated] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const initialFormState = {
     userId: "",
     name: "",
@@ -40,6 +43,8 @@ function InquiryReconstructImages({ title, dropDownData, listData }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setLoading(true);
+
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.stopPropagation();
@@ -47,6 +52,22 @@ function InquiryReconstructImages({ title, dropDownData, listData }) {
     setValidated(true);
 
     if (validateForm(formData)) {
+      fetch("/src/dummy/user.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setSearchResults(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setLoading(false);
+        });
+
       showList();
     } else {
       hiddenList();
@@ -213,31 +234,35 @@ function InquiryReconstructImages({ title, dropDownData, listData }) {
               </Button>
             </Form>
             <div id="listOfUser" className="list__of__user">
-              <Table responsive striped bordered hover>
-                <thead>
-                  <th>NIP / NIK/ Vendor NIP</th>
-                  <th>Name</th>
-                  <th>User Group</th>
-                  <th>Branch Code</th>
-                  <th>Office Code</th>
-                  <th>Reconstruct Fingerprint Image Status</th>
-                </thead>
-                <tbody>
-                  {listData.map((item) => (
-                    <tr
-                      key={item.id}
-                      onDoubleClick={() => handleRowDoubleClick(item.id)}
-                    >
-                      <td>{item.userId}</td>
-                      <td>{item.name}</td>
-                      <td>{item.userGroup}</td>
-                      <td>{item.branchCode}</td>
-                      <td>{item.officeCode}</td>
-                      <td>{item.status}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                <Table responsive striped bordered hover>
+                  <thead>
+                    <th>NIP / NIK/ Vendor NIP</th>
+                    <th>Name</th>
+                    <th>User Group</th>
+                    <th>Branch Code</th>
+                    <th>Office Code</th>
+                    <th>Reconstruct Fingerprint Image Status</th>
+                  </thead>
+                  <tbody>
+                    {searchResults.map((item) => (
+                      <tr
+                        key={item.id}
+                        onDoubleClick={() => handleRowDoubleClick(item.id)}
+                      >
+                        <td>{item.userId}</td>
+                        <td>{item.name}</td>
+                        <td>{item.userGroup}</td>
+                        <td>{item.branchCode}</td>
+                        <td>{item.officeCode}</td>
+                        <td>{item.status}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              )}
             </div>
           </Container>
         </Card.Body>
