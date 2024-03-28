@@ -1,0 +1,11 @@
+#listOfActivity {
+  display: none;
+}
+
+.list__of__activity {
+  padding-top: 70px;
+}
+
+.btn__search {
+  margin-left: 10px;
+}

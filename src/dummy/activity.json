@@ -1,0 +1,18 @@
+[{
+    "id":1,
+    "branchCode":"0100",
+    "officeCode":"000",
+    "createdDate":"12-02-2024 11:17:21",
+    "createdBy":"192.168.52.1 (ABD-DEV)",
+    "loginId":"888999",
+    "activity":"Reconstruct Fingerprint Images (Nip:12345 | Name:User1, Group User:User | Branch Code:0100 | Office Code:000)"
+},
+{
+    "id":2,
+    "branchCode":"0011",
+    "officeCode":"000",
+    "createdDate":"12-02-2024 11:17:21",
+    "createdBy":"192.168.52.1 (ABD-DEV)",
+    "loginId":"123456",
+    "activity":"Reconstruct Fingerprint Images (Nip:12345 | Name:User1, Group User:User | Branch Code:0100 | Office Code:000)"
+}]

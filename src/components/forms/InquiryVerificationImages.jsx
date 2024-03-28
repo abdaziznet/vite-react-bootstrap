@@ -13,8 +13,11 @@ import {
 } from "react-bootstrap";
 import "./inquiryverificationimages.css";
 
-function InquiryVerificationImages({ title, dropDownData, listData }) {
+function InquiryVerificationImages({ title, dropDownData }) {
   const [validated, setValidated] = useState(false);
+  const [searchResults, setSearchResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+
   const initialFormState = {
     userId: "",
     name: "",
@@ -39,6 +42,8 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    setLoading(true);
+
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.stopPropagation();
@@ -46,6 +51,21 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
     setValidated(true);
 
     if (validateForm(formData)) {
+      fetch("/src/dummy/user.json")
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setSearchResults(data);
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error);
+          setLoading(false);
+        });
       showList();
     } else {
       hiddenList();
@@ -69,7 +89,7 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
   };
 
   function hiddenList() {
-    var list = document.getElementById("listOfUser");
+    var list = document.getElementById("listOfUserVerification");
     if (list) {
       // Set custom styles using the style property
       list.style.display = "none";
@@ -210,35 +230,39 @@ function InquiryVerificationImages({ title, dropDownData, listData }) {
               </Button>
             </Form>
             <div id="listOfUserVerification" className="list__of__user__verify">
-              <Table responsive striped bordered hover>
-                <thead>
-                  <th>NIP / NIK/ Vendor NIP</th>
-                  <th>Name</th>
-                  <th>User Group</th>
-                  <th>Branch Code</th>
-                  <th>Office Code</th>
-                  <th className="text__center">Action</th>
-                </thead>
-                <tbody>
-                  {listData.map((item) => (
-                    <tr key={item.id}>
-                      <td>{item.userId}</td>
-                      <td>{item.name}</td>
-                      <td>{item.userGroup}</td>
-                      <td>{item.branchCode}</td>
-                      <td>{item.officeCode}</td>
-                      <td className="text__center">
-                        <button
-                          className="btn btn-primary btn-sm"
-                          onClick={() => handleVerify(item.id)}
-                        >
-                          Verify Images
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
+              {loading ? (
+                <p>Loading...</p>
+              ) : (
+                <Table responsive striped bordered hover>
+                  <thead>
+                    <th>NIP / NIK/ Vendor NIP</th>
+                    <th>Name</th>
+                    <th>User Group</th>
+                    <th>Branch Code</th>
+                    <th>Office Code</th>
+                    <th className="text__center">Action</th>
+                  </thead>
+                  <tbody>
+                    {searchResults.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.userId}</td>
+                        <td>{item.name}</td>
+                        <td>{item.userGroup}</td>
+                        <td>{item.branchCode}</td>
+                        <td>{item.officeCode}</td>
+                        <td className="text__center">
+                          <button
+                            className="btn btn-primary btn-sm"
+                            onClick={() => handleVerify(item.id)}
+                          >
+                            Verify Images
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </Table>
+              )}
             </div>
           </Container>
         </Card.Body>

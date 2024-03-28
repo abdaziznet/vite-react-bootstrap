@@ -14,7 +14,7 @@ import {
 } from "react-bootstrap";
 import "./inquiryreconstructimages.css";
 
-function InquiryReconstructImages({ title, dropDownData, listData }) {
+function InquiryReconstructImages({ title, dropDownData }) {
   const [validated, setValidated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -194,7 +194,7 @@ function InquiryReconstructImages({ title, dropDownData, listData }) {
                     </Form.Control.Feedback>
                   </InputGroup>
                 </Form.Group>
-                <Form.Group as={Col} md="4" controlId="validationCustom05">
+                <Form.Group as={Col} md="4" controlId="officeCode">
                   <InputGroup className="mb-3">
                     <InputGroup.Text id="basic-addon5">
                       Office Code

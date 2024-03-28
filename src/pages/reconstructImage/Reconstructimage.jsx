@@ -17,7 +17,6 @@ class ReconstructImage extends React.Component {
         <InquiryReconstructImages
           title={"List of User Reconstruct Images"}
           dropDownData={EnumOfUserGroupBCA}
-          listData={ListOfUserReconstructImage}
         />
       </Container>
     );

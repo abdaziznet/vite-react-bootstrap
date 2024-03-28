@@ -17,7 +17,6 @@ class VerificationImage extends React.Component {
         <InquiryVerificationImages
           title={"List of User Verification Images"}
           dropDownData={EnumOfUserGroupBCA}
-          listData={ListOfUserReconstructImage}
         />
       </Container>
     );
