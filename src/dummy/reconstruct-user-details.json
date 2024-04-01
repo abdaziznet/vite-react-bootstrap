@@ -1,0 +1,199 @@
+[{
+    "id": 1,
+    "userId": "123456",
+    "name": "Abdul Gani",
+    "userGroup": "Manager",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Completed",
+    "fingerDetails":[{
+      "idx":0,
+      "fingerIndex":6,
+      "description":"Telunjuk Kanan",
+      "result":"Matched",
+      "score":"234"
+    },{
+      "idx":1,
+      "fingerIndex":7,
+      "description":"Tengah Kanan",
+      "result":"Matched",
+      "score":"754"
+    },{
+      "idx":2,
+      "fingerIndex":9,
+      "description":"Kelingking Kanan",
+      "result":"Matched",
+      "score":"800"
+    }]    
+  },
+  {
+    "id": 2,
+    "userId": "567890",
+    "name": "Aisyah",
+    "userGroup": "Enroller",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete",
+    "fingerDetails":[{
+      "idx":0,
+      "fingerIndex":0,
+      "description":"Kelingking Kiri",
+      "result":"Matched",
+      "score":"234"
+    },{
+      "idx":1,
+      "fingerIndex":6,
+      "description":"Telunjuk Kanan",
+      "result":"Matched",
+      "score":"754"
+    },{
+      "idx":2,
+      "fingerIndex":9,
+      "description":"Kelingking Kanan",
+      "result":"",
+      "score":""
+    }]    
+
+  },
+  {
+    "id": 3,
+    "userId": "423658",
+    "name": "Khalid",
+    "userGroup": "User",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Completed",
+    "fingerDetails":[{
+      "idx":0,
+      "fingerIndex":0,
+      "description":"Kelingking Kiri",
+      "result":"Matched",
+      "score":"234"
+    },{
+      "idx":1,
+      "fingerIndex":6,
+      "description":"Telunjuk Kanan",
+      "result":"Matched",
+      "score":"754"
+    },{
+      "idx":2,
+      "fingerIndex":9,
+      "description":"Kelingking Kanan",
+      "result":"",
+      "score":""
+    }]    
+  },
+  {
+    "id": 4,
+    "userId": "987123",
+    "name": "Ummu Salamah",
+    "userGroup": "Reporter",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete",
+    "fingerDetails":[{
+      "idx":0,
+      "fingerIndex":0,
+      "description":"Kelingking Kiri",
+      "result":"Matched",
+      "score":"234"
+    },{
+      "idx":1,
+      "fingerIndex":6,
+      "description":"Telunjuk Kanan",
+      "result":"Matched",
+      "score":"754"
+    },{
+      "idx":2,
+      "fingerIndex":9,
+      "description":"Kelingking Kanan",
+      "result":"",
+      "score":""
+    }]    
+  },
+  {
+    "id": 5,
+    "userId": "890736",
+    "name": "Al Farabi",
+    "userGroup": "Enroller",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Completed",
+    "fingerDetails":[{
+      "idx":0,
+      "fingerIndex":0,
+      "description":"Kelingking Kiri",
+      "result":"Matched",
+      "score":"234"
+    },{
+      "idx":1,
+      "fingerIndex":6,
+      "description":"Telunjuk Kanan",
+      "result":"Matched",
+      "score":"754"
+    },{
+      "idx":2,
+      "fingerIndex":9,
+      "description":"Kelingking Kanan",
+      "result":"",
+      "score":""
+    }]    
+  },
+  {
+    "id": 6,
+    "userId": "198764",
+    "name": "Soleh",
+    "userGroup": "User",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete",
+    "fingerDetails":[{
+      "idx":0,
+      "fingerIndex":0,
+      "description":"Kelingking Kiri",
+      "result":"Matched",
+      "score":"234"
+    },{
+      "idx":1,
+      "fingerIndex":6,
+      "description":"Telunjuk Kanan",
+      "result":"Matched",
+      "score":"754"
+    },{
+      "idx":2,
+      "fingerIndex":9,
+      "description":"Kelingking Kanan",
+      "result":"",
+      "score":""
+    }]    
+  },
+  {
+    "id": 7,
+    "userId": "098765",
+    "name": "Hasyim",
+    "userGroup": "User",
+    "branchCode": "0100",
+    "officeCode": "000",
+    "status": "Not Complete",
+    "fingerDetails":[{
+      "idx":0,
+      "fingerIndex":0,
+      "description":"Kelingking Kiri",
+      "result":"Matched",
+      "score":"234"
+    },{
+      "idx":1,
+      "fingerIndex":6,
+      "description":"Telunjuk Kanan",
+      "result":"Matched",
+      "score":"754"
+    },{
+      "idx":2,
+      "fingerIndex":9,
+      "description":"Kelingking Kanan",
+      "result":"",
+      "score":""
+    }]    
+  }
+]
+

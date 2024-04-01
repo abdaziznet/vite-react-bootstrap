@@ -16,9 +16,10 @@ import IMAGES from "../content/Assets";
 function ReconstructImageUserVerify({ title, id, dataList }) {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
+  const [finger0, setFinger0] = useState(false);
 
   useEffect(() => {
-    fetch("/src/dummy/user.json")
+    fetch("/src/dummy/reconstruct-user-details.json")
       //fetch(`https://dummyjson.com/products`)
       .then((response) => {
         if (!response.ok) {
@@ -28,6 +29,7 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
       })
       .then((data) => {
         setItem(data[id - 1]);
+        //setFinger0(item.fingerDetails[0].);
       })
       .catch((error) => {
         setError(error);
@@ -222,11 +224,12 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {dataList.map((item, index) => (
-                    <tr key={index}>
-                      {Object.values(item).map((value, subIndex) => (
-                        <td key={subIndex}>{value}</td>
-                      ))}
+                  {item.fingerDetails.map((item) => (
+                    <tr key={item.idx}>
+                      <td>{item.fingerIndex}</td>
+                      <td>{item.description}</td>
+                      <td>{item.result}</td>
+                      <td>{item.score}</td>
                     </tr>
                   ))}
                 </tbody>
