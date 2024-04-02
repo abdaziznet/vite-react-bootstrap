@@ -177,22 +177,22 @@
     "status": "Not Complete",
     "fingerDetails":[{
       "idx":0,
-      "fingerIndex":0,
-      "description":"Kelingking Kiri",
+      "fingerIndex":2,
+      "description":"Manis Kiri",
       "result":"Matched",
       "score":"234"
     },{
       "idx":1,
-      "fingerIndex":6,
-      "description":"Telunjuk Kanan",
-      "result":"Matched",
-      "score":"754"
+      "fingerIndex":3,
+      "description":"Telunjuk Kiri",
+      "result":"",
+      "score":""
     },{
       "idx":2,
       "fingerIndex":9,
       "description":"Kelingking Kanan",
-      "result":"",
-      "score":""
+      "result":"Matched",
+      "score":"456"
     }]    
   }
 ]

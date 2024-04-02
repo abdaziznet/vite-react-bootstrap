@@ -16,7 +16,13 @@ import IMAGES from "../content/Assets";
 function ReconstructImageUserVerify({ title, id, dataList }) {
   const [item, setItem] = useState(null);
   const [error, setError] = useState(null);
-  const [finger0, setFinger0] = useState(false);
+  const [fingerFirst, setFingerFirst] = useState(null);
+  const [fingerSecond, setFingerSecond] = useState(null);
+  const [fingerThird, setFingerThird] = useState(null);
+
+  const [fingerFirstStatus, setFingerFirstStatus] = useState(null);
+  const [fingerSecondStatus, setFingerSecondStatus] = useState(null);
+  const [fingerThirdStatus, setFingerThirdStatus] = useState(null);
 
   useEffect(() => {
     fetch("/src/dummy/reconstruct-user-details.json")
@@ -29,7 +35,13 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
       })
       .then((data) => {
         setItem(data[id - 1]);
-        //setFinger0(item.fingerDetails[0].);
+        setFingerFirst(data[id - 1].fingerDetails[0].fingerIndex);
+        setFingerSecond(data[id - 1].fingerDetails[1].fingerIndex);
+        setFingerThird(data[id - 1].fingerDetails[2].fingerIndex);
+
+        setFingerFirstStatus(data[id - 1].fingerDetails[0].result);
+        setFingerSecondStatus(data[id - 1].fingerDetails[1].result);
+        setFingerThirdStatus(data[id - 1].fingerDetails[2].result);
       })
       .catch((error) => {
         setError(error);
@@ -121,74 +133,378 @@ function ReconstructImageUserVerify({ title, id, dataList }) {
                 <div className="col-auto">
                   <Row className="mb-3">
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk0"
-                        className="chk__0"
-                      />
+                      {fingerFirst === 0 ||
+                      fingerSecond === 0 ||
+                      fingerThird === 0 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk0"
+                          className="chk__0"
+                          defaultChecked={
+                            fingerFirstStatus === "Matched" ||
+                            fingerSecondStatus === "Matched" ||
+                            fingerThirdStatus === "Matched"
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            fingerFirstStatus === "Matched" ||
+                            fingerSecondStatus === "Matched" ||
+                            fingerThirdStatus === "Matched"
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk0"
+                          className="chk__0 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk1"
-                        className="chk__1"
-                      />
+                      {fingerFirst === 1 ||
+                      fingerSecond === 1 ||
+                      fingerThird === 1 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk1"
+                          className="chk__1"
+                          defaultChecked={
+                            (fingerFirst === 1 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 1 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 1 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 1 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 1 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 1 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk1"
+                          className="chk__1 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk2"
-                        className="chk__2"
-                      />
+                      {fingerFirst === 2 ||
+                      fingerSecond === 2 ||
+                      fingerThird === 2 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk2"
+                          className="chk__2"
+                          defaultChecked={
+                            (fingerFirst === 2 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 2 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 2 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 2 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 2 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 2 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk2"
+                          className="chk__2 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk3"
-                        className="chk__3"
-                      />
+                      {fingerFirst === 3 ||
+                      fingerSecond === 3 ||
+                      fingerThird === 3 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk3"
+                          className="chk__3"
+                          defaultChecked={
+                            (fingerFirst === 3 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 3 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 3 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 3 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 3 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 3 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk3"
+                          className="chk__3 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk4"
-                        className="chk__4"
-                      />
+                      {fingerFirst === 4 ||
+                      fingerSecond === 4 ||
+                      fingerThird === 4 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk4"
+                          className="chk__4"
+                          defaultChecked={
+                            (fingerFirst === 4 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 4 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 4 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 4 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 4 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 4 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk4"
+                          className="chk__4 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk5"
-                        className="chk__5"
-                      />
+                      {fingerFirst === 5 ||
+                      fingerSecond === 5 ||
+                      fingerThird === 5 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk5"
+                          className="chk__5"
+                          defaultChecked={
+                            (fingerFirst === 5 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 5 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 5 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 5 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 5 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 5 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk5"
+                          className="chk__5 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk6"
-                        className="chk__6"
-                      />
+                      {fingerFirst === 6 ||
+                      fingerSecond === 6 ||
+                      fingerThird === 6 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk6"
+                          className="chk__6"
+                          defaultChecked={
+                            (fingerFirst === 6 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 6 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 6 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 6 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 6 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 6 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk6"
+                          className="chk__6 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk7"
-                        className="chk__7"
-                      />
+                      {fingerFirst === 7 ||
+                      fingerSecond === 7 ||
+                      fingerThird === 7 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk7"
+                          className="chk__7"
+                          defaultChecked={
+                            (fingerFirst === 7 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 7 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 7 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 7 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 7 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 7 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk7"
+                          className="chk__7 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk8"
-                        className="chk__8"
-                      />
+                      {fingerFirst === 8 ||
+                      fingerSecond === 8 ||
+                      fingerThird === 8 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk8"
+                          className="chk__8"
+                          defaultChecked={
+                            (fingerFirst === 8 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 8 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 8 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 8 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 8 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 8 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk8"
+                          className="chk__8 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                     <Col>
-                      <Form.Check
-                        type="checkbox"
-                        id="chk9"
-                        className="chk__9"
-                      />
+                      {fingerFirst === 9 ||
+                      fingerSecond === 9 ||
+                      fingerThird === 9 ? (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk9"
+                          className="chk__9"
+                          defaultChecked={
+                            (fingerFirst === 9 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 9 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 9 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                          disabled={
+                            (fingerFirst === 9 &&
+                              fingerFirstStatus === "Matched") ||
+                            (fingerSecond === 9 &&
+                              fingerSecondStatus === "Matched") ||
+                            (fingerThird === 9 &&
+                              fingerThirdStatus === "Matched")
+                              ? true
+                              : false
+                          }
+                        />
+                      ) : (
+                        <Form.Check
+                          type="checkbox"
+                          id="chk9"
+                          className="chk__9 disabled__checkbox"
+                          disabled
+                        />
+                      )}
                     </Col>
                   </Row>
                   <img
