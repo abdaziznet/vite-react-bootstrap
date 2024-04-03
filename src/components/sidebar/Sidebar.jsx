@@ -15,6 +15,10 @@ import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
 import IMAGES from "../content/Assets";
 
 class SideBar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div className={classNames("sidebar", { "is-open": this.props.isOpen })}>
@@ -41,7 +45,7 @@ class SideBar extends React.Component {
 
         <Nav className="flex-column pt-2">
           <Nav.Item className="active">
-            <Nav.Link className="text-light" href="/">
+            <Nav.Link className="text-light" href="/dashboard">
               <FontAwesomeIcon icon={faMicrosoft} className="custom-icon" />
               Dashboard
             </Nav.Link>
@@ -81,7 +85,12 @@ class SideBar extends React.Component {
             </Nav.Link>
           </Nav.Item>
 
-          <Button variant="danger" size="lg" className="btn__logout">
+          <Button
+            variant="danger"
+            size="lg"
+            className="btn__logout"
+            onClick={this.props.onLogout}
+          >
             <FontAwesomeIcon icon={faSignOut} pull="left" size="xl" />
             Logout & Exit
           </Button>

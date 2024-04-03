@@ -10,6 +10,7 @@ import Configuration from "./pages/configuration/Configuration";
 import BreadcrumbComponent from "./components/content/BreadCrumb";
 import UserVerify from "./pages/reconstructImage/Userverify";
 import ErrorPage from "./pages/error/ErrorPage";
+import Login from "./components/forms/Login";
 
 class App extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends React.Component {
     this.state = {
       isOpen: false,
       isMobile: true,
+      isLoggedIn: localStorage.getItem("isLoggedIn"),
     };
 
     this.previousWidth = -1;
@@ -46,6 +48,8 @@ class App extends React.Component {
   componentDidMount() {
     this.updateWidth();
     window.addEventListener("resize", this.updateWidth.bind(this));
+
+    console.log(localStorage.getItem("isLoggedIn"));
   }
 
   /**
@@ -59,41 +63,86 @@ class App extends React.Component {
     this.setState({ isOpen: !this.state.isOpen });
   };
 
+  loginHandler = () => {
+    this.setState({ isLoggedIn: true });
+    localStorage.setItem("isLoggedIn", true);
+  };
+
+  logoutHandler = () => {
+    this.setState({ isLoggedIn: false });
+    localStorage.setItem("isLoggedIn", false);
+  };
+
   render() {
+    const { isLoggedIn } = this.state;
     return (
       <BrowserRouter>
         <div className="App wrapper">
-          <SideBar toggle={this.toggle} isOpen={this.state.isOpen} />
-          <BreadcrumbComponent />
+          {isLoggedIn && (
+            <SideBar
+              toggle={this.toggle}
+              isOpen={this.state.isOpen}
+              onLogout={this.logoutHandler}
+            />
+          )}
+          {/* {isLoggedIn && <BreadcrumbComponent />} */}
           <Routes>
+            {/* <Route index element={<Login />}  /> */}
             <Route
               index
               element={
-                <Dashboard toggle={this.toggle} isOpen={this.state.isOpen} />
+                isLoggedIn ? (
+                  <Dashboard toggle={this.toggle} isOpen={this.state.isOpen} />
+                ) : (
+                  <Login onLogin={this.loginHandler} />
+                )
+              }
+            />
+            <Route
+              path="dashboard"
+              index
+              element={
+                isLoggedIn ? (
+                  <Dashboard toggle={this.toggle} isOpen={this.state.isOpen} />
+                ) : (
+                  <Login onLogin={this.loginHandler} />
+                )
               }
             />
             <Route
               path="reconstructImage"
               element={
-                <ReconstructImage
-                  toggle={this.toggle}
-                  isOpen={this.state.isOpen}
-                />
+                isLoggedIn ? (
+                  <ReconstructImage
+                    toggle={this.toggle}
+                    isOpen={this.state.isOpen}
+                  />
+                ) : (
+                  <Login onLogin={this.loginHandler} />
+                )
               }
             />
             <Route
               path="reconstructImage/userVerify/:id"
               element={
-                <UserVerify toggle={this.toggle} isOpen={this.state.isOpen} />
+                isLoggedIn ? (
+                  <UserVerify toggle={this.toggle} isOpen={this.state.isOpen} />
+                ) : (
+                  <Login onLogin={this.loginHandler} />
+                )
               }
             />
             <Route
               path="verificationImage"
               element={
-                <VerificationImage
-                  toggle={this.toggle}
-                  isOpen={this.state.isOpen}
-                />
+                isLoggedIn ? (
+                  <VerificationImage
+                    toggle={this.toggle}
+                    isOpen={this.state.isOpen}
+                  />
+                ) : (
+                  <Login onLogin={this.loginHandler} />
+                )
               }
             />
             <Route
@@ -105,10 +154,14 @@ class App extends React.Component {
             <Route
               path="configuration"
               element={
-                <Configuration
-                  toggle={this.toggle}
-                  isOpen={this.state.isOpen}
-                />
+                isLoggedIn ? (
+                  <Configuration
+                    toggle={this.toggle}
+                    isOpen={this.state.isOpen}
+                  />
+                ) : (
+                  <Login onLogin={this.loginHandler} />
+                )
               }
             />
             <Route
