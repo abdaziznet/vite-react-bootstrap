@@ -75,6 +75,7 @@ class App extends React.Component {
 
   render() {
     const { isLoggedIn } = this.state;
+
     return (
       <BrowserRouter>
         <div className="App wrapper">
@@ -85,9 +86,7 @@ class App extends React.Component {
               onLogout={this.logoutHandler}
             />
           )}
-          {/* {isLoggedIn && <BreadcrumbComponent />} */}
           <Routes>
-            {/* <Route index element={<Login />}  /> */}
             <Route
               index
               element={

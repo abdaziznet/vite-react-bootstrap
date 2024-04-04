@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTimes,
@@ -7,8 +7,9 @@ import {
   faTableList,
   faGear,
   faSignOut,
+  faL,
 } from "@fortawesome/free-solid-svg-icons";
-import { Nav, Button, Image } from "react-bootstrap";
+import { Nav, Button, Image, Modal } from "react-bootstrap";
 import classNames from "classnames";
 import "./sidebar.css";
 import { faMicrosoft } from "@fortawesome/free-brands-svg-icons";
@@ -17,9 +18,33 @@ import IMAGES from "../content/Assets";
 class SideBar extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      isModalShow: false,
+      isbtnLogoutDisable: false,
+    };
   }
 
   render() {
+    const { isModalShow } = this.state;
+    const { isbtnLogoutDisable } = this.state;
+
+    const handleLogout = () => {
+      this.setState({ isModalShow: true });
+      this.setState({ isbtnLogoutDisable: true });
+    };
+
+    const handleOK = () => {
+      this.setState({ isModalShow: false });
+      this.setState({ isbtnLogoutDisable: false });
+
+      this.props.onLogout();
+    };
+
+    const handleCancel = () => {
+      this.setState({ isModalShow: false });
+      this.setState({ isbtnLogoutDisable: false });
+    };
     return (
       <div className={classNames("sidebar", { "is-open": this.props.isOpen })}>
         <div className="sidebar-header">
@@ -34,12 +59,7 @@ class SideBar extends React.Component {
             </Nav.Link>
           </Button>
           <div className="logo__container">
-            <Image
-              // src="/img/Logo-BCA-bg-white.png"
-              src={IMAGES.Img_BCALogo}
-              fluid
-              className="logo__img"
-            />
+            <Image src={IMAGES.Img_BCALogo} fluid className="logo__img" />
           </div>
         </div>
 
@@ -89,11 +109,27 @@ class SideBar extends React.Component {
             variant="danger"
             size="lg"
             className="btn__logout"
-            onClick={this.props.onLogout}
+            onClick={handleLogout}
+            disabled={isbtnLogoutDisable}
           >
             <FontAwesomeIcon icon={faSignOut} pull="left" size="xl" />
-            Logout & Exit
+            Logout
           </Button>
+
+          <Modal show={isModalShow} onHide={handleCancel}>
+            <Modal.Header closeButton>
+              <Modal.Title>Confirmation</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>Are you sure you want to logout?</Modal.Body>
+            <Modal.Footer>
+              <Button variant="danger" onClick={handleCancel}>
+                Cancel
+              </Button>
+              <Button variant="primary" onClick={handleOK}>
+                OK
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Nav>
       </div>
     );
