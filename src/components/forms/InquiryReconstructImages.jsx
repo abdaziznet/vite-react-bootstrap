@@ -11,6 +11,7 @@ import {
   InputGroup,
   Row,
   Table,
+  Pagination,
 } from "react-bootstrap";
 import "./inquiryreconstructimages.css";
 
@@ -18,6 +19,17 @@ function InquiryReconstructImages({ title, dropDownData }) {
   const [validated, setValidated] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Calculate the index of the first and last item to display on the current page
+  const indexOfLastItem = currentPage * 5;
+  const indexOfFirstItem = indexOfLastItem - 5;
+  const currentItems = searchResults.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Change page
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   const initialFormState = {
     userId: "",
@@ -247,7 +259,7 @@ function InquiryReconstructImages({ title, dropDownData }) {
                     <th>Reconstruct Fingerprint Image Status</th>
                   </thead>
                   <tbody>
-                    {searchResults.map((item) => (
+                    {currentItems.map((item) => (
                       <tr
                         key={item.id}
                         onDoubleClick={() => handleRowDoubleClick(item.id)}
@@ -263,6 +275,19 @@ function InquiryReconstructImages({ title, dropDownData }) {
                   </tbody>
                 </Table>
               )}
+              <Pagination>
+                {Array.from({
+                  length: Math.ceil(searchResults.length / 5),
+                }).map((_, index) => (
+                  <Pagination.Item
+                    key={index + 1}
+                    active={index + 1 === currentPage}
+                    onClick={() => handlePageChange(index + 1)}
+                  >
+                    {index + 1}
+                  </Pagination.Item>
+                ))}
+              </Pagination>
             </div>
           </Container>
         </Card.Body>
