@@ -1,0 +1,5 @@
+{
+    "StatusCode": 0,
+    "StatusMessage": "Get dashboard info success",
+    "ResponseData": "{\"BranchTotal\":7,\"ReconstructImages\":0,\"UserTotal\":38,\"LoginInfo\":{\"LogonId\":\"090790\",\"Name\":\"ABD MANAGER\",\"BranchCode\":\"0111\",\"OfficeCode\":\"000\",\"GroupUser\":\"Manager\",\"LastLoginTime\":\"1/1/1900 12:00:00 AM\"},\"PendingListInfo\":[{\"BranchOfficeCode\":\"0011-000\",\"Percentage\":\"100%\"},{\"BranchOfficeCode\":\"0021-000\",\"Percentage\":\"100%\"},{\"BranchOfficeCode\":\"0100-000\",\"Percentage\":\"100%\"},{\"BranchOfficeCode\":\"0111-000\",\"Percentage\":\"100%\"},{\"BranchOfficeCode\":\"0311-000\",\"Percentage\":\"100%\"},{\"BranchOfficeCode\":\"1112-000\",\"Percentage\":\"100%\"},{\"BranchOfficeCode\":\"1116-000\",\"Percentage\":\"100%\"}],\"RespGuid\":\"DCF92F37-7322-48E2-93E8-9E87A476CCB3\"}"
+}

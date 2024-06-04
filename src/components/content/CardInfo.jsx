@@ -9,23 +9,23 @@ function CardInfo({ title, data }) {
           <Table responsive>
             <tr>
               <td>Login ID</td>
-              <td>: {data.loginId}</td>
+              <td>: {data.LogonId}</td>
               <td>Office Code</td>
-              <td>: {data.officeCode}</td>
+              <td>: {data.OfficeCode}</td>
             </tr>
             <br />
             <tr>
               <td>Name</td>
-              <td>: {data.name}</td>
+              <td>: {data.Name}</td>
               <td>User Group</td>
-              <td>: {data.userGroup}</td>
+              <td>: {data.GroupUser}</td>
             </tr>
             <br />
             <tr>
               <td>Branch Code</td>
-              <td>: {data.branchCode}</td>
+              <td>: {data.BranchCode}</td>
               <td>Last Login</td>
-              <td>: {data.lastLogin}</td>
+              <td>: {data.LastLoginTime}</td>
             </tr>
           </Table>
         </Card.Body>

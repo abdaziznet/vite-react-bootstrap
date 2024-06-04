@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
   }
 
   componentDidMount() {
-    fetch("/src/dummy/dashboard.json")
+    fetch("/src/dummy/getdashboard.json")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
@@ -29,8 +29,13 @@ class Dashboard extends React.Component {
         return response.json();
       })
       .then((data) => {
+        if (data.StatusCode != 0) {
+          throw new Error(data.StatusMessage);
+        }
+
+        const responseData = JSON.parse(data.ResponseData);
         this.setState({
-          data: data,
+          data: responseData,
           isLoading: false,
         });
       })
@@ -57,13 +62,13 @@ class Dashboard extends React.Component {
         fluid
         className={classNames("content", { "is-open": this.props.isOpen })}
       >
-        <NavBar toggle={this.props.toggle} loginName={data.loginInfo["name"]} />
+        <NavBar toggle={this.props.toggle} loginName={data.LoginInfo.Name} />
 
         <Container fluid className="container__dashboard">
           <Row>
             {/* First Column */}
             <Col md={3}>
-              <CountCard title={"Branch Total"} value={data.branchTotal} />
+              <CountCard title={"Branch Total"} value={data.BranchTotal} />
               <Row>
                 {/* First Nested Column */}
                 <Col md={3}>
@@ -83,7 +88,7 @@ class Dashboard extends React.Component {
             <Col md={3}>
               <CountCard
                 title={"Reconstruct Images"}
-                value={data.reconstructImagesTotal}
+                value={data.ReconstructImages}
               />
               <Row>
                 {/* First Nested Column */}
@@ -102,7 +107,7 @@ class Dashboard extends React.Component {
 
             {/* Third Column */}
             <Col md={3}>
-              <CountCard title={"User Total"} value={data.userTotal} />
+              <CountCard title={"User Total"} value={data.UserTotal} />
               <Row>
                 {/* First Nested Column */}
                 <Col md={3}>
@@ -120,12 +125,12 @@ class Dashboard extends React.Component {
 
             {/* four Column */}
             <Col md={3}>
-              <ListView data={data.branchPercentage} />
+              <ListView data={data.PendingListInfo} />
             </Col>
           </Row>
           <Row>
             <Col md={9}>
-              <CardInfo title={"Login Information"} data={data.loginInfo} />
+              <CardInfo title={"Login Information"} data={data.LoginInfo} />
             </Col>
           </Row>
         </Container>
